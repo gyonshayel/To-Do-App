@@ -92,7 +92,10 @@ export function AddTask({ list = "Today" }) {
 
         {/* Important */}
         <Button
-          onClick={() => setImportant(!important)}
+          onClick={(event) => {
+            event.preventDefault();
+            setImportant(!important);
+          }}
           variant="outline"
           size="icon"
           className="rounded-full"
