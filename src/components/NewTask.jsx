@@ -26,11 +26,11 @@ export function NewTask({ list = "Today" }) {
       id: crypto.randomUUID(),
       task,
       note,
-      date,
+      date: date.toISOString(),
       list,
       important,
       status: "incomplete",
-      dateCreated: new Date(),
+      dateCreated: new Date().toISOString(),
     };
 
     addTask(taskObj);

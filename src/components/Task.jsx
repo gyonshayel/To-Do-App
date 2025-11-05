@@ -3,7 +3,10 @@ import { useTasks } from "../context/TaskContext";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
+  DialogHeader,
+  DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
 import { Checkbox } from "./ui/checkbox";
@@ -30,7 +33,7 @@ export function Task({ task }) {
     event.preventDefault();
     updateTask(task.id, "task", taskDialog);
     updateTask(task.id, "note", noteDialog);
-    updateTask(task.id, "date", dateDialog);
+    updateTask(task.id, "date", dateDialog.toISOString());
     updateTask(task.id, "important", importantDialog);
   };
 
@@ -161,8 +164,8 @@ export function Task({ task }) {
           />
         </svg>
       </Button>
-      {today < taskDate && (
-        <p>Due {taskDate.toLocaleDateString("en-US", options)}</p>
+      {today < dateDialog && (
+        <p>Due {dateDialog.toLocaleDateString("en-US", options)}</p>
       )}
       {task.note && (
         <svg
