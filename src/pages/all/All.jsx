@@ -3,5 +3,16 @@ import { Task } from "../../components/Task";
 import { NewTask } from "../../components/NewTask";
 
 export function All() {
-  return <></>;
+  const { tasksArray } = useTasks();
+
+  return (
+    <>
+      <NewTask />
+      <div className="my-4 space-y-2">
+        {tasksArray.map((task) => (
+          <Task key={task.id} task={task} />
+        ))}
+      </div>
+    </>
+  );
 }

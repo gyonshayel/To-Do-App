@@ -14,10 +14,10 @@ export function Today() {
 
   return (
     <>
-      <NewTask list="All" />
+      <NewTask />
       <div className="my-4 space-y-2">
-        {filtered.map((t) => (
-          <Task key={t.id} task={t} />
+        {filtered.map((task) => (
+          <Task key={task.id} task={task} />
         ))}
       </div>
     </>
