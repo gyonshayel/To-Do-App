@@ -1,7 +1,7 @@
 import { useTasks } from "../context/TaskContext";
 import { Task } from "./Task";
 
-export function TaskList({ list }) {
+export function TasksList({ list }) {
   const { tasksArray } = useTasks();
   const filtered = list
     ? tasksArray.filter((t) => t.list === list)

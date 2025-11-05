@@ -1,11 +1,11 @@
 import { NewTask } from "../../components/NewTask";
 import { TasksList } from "../../components/TasksList";
 
-export function Today() {
+export function All() {
   return (
     <>
-      <NewTask list="Today" />
-      <TasksList list="Today" />
+      <NewTask list="All" />
+      <TasksList list="All" />
     </>
   );
 }

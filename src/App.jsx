@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { Header } from "./components/Header";
 import {
   SidebarProvider,
@@ -5,24 +6,34 @@ import {
   SidebarInset,
 } from "./components/ui/sidebar";
 import { AppSidebar } from "./components/Sidebar";
-import { NewTask } from "./components/NewTask";
-import { TaskList } from "./components/TasksList";
+import { Today } from "./pages/today/Today";
+import { Scheduled } from "./pages/scheduled/Scheduled";
+import { All } from "./pages/all/All";
+import { Important } from "./pages/important/Important";
+import { Completed } from "./pages/completed/Completed";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <Header />
-      <SidebarProvider>
-        <AppSidebar />
-        <SidebarInset>
-          <main>
+      <Router>
+        <Header />
+        <SidebarProvider>
+          <AppSidebar />
+          <SidebarInset>
             <SidebarTrigger className="hidden sm:block" />
-            <NewTask />
-            <TaskList list="Today" />
-          </main>
-        </SidebarInset>
-      </SidebarProvider>
+            <main>
+              <Routes>
+                <Route path="/" element={<Today />} />
+                <Route path="/scheduled" element={<Scheduled />} />
+                <Route path="/all" element={<All />} />
+                <Route path="/important" element={<Important />} />
+                <Route path="/completed" element={<Completed />} />
+              </Routes>
+            </main>
+          </SidebarInset>
+        </SidebarProvider>
+      </Router>
     </>
   );
 }

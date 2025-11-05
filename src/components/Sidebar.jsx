@@ -20,7 +20,7 @@ import {
 const lists = [
   {
     title: "Today",
-    url: "/today",
+    url: "/",
     icon: Today,
   },
   {
