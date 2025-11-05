@@ -3,12 +3,10 @@ import { createContext, useContext, useState, useEffect } from "react";
 const TaskContext = createContext();
 
 export function TaskProvider({ children }) {
-  const [tasksArray, setTasksArray] = useState([]);
-
-  useEffect(() => {
+  const [tasksArray, setTasksArray] = useState(() => {
     const arr = localStorage.getItem("tasksArray");
-    setTasksArray(arr ? JSON.parse(arr) : []);
-  }, []);
+    return arr ? JSON.parse(arr) : [];
+  });
 
   useEffect(() => {
     localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
