@@ -94,7 +94,7 @@ export function NewTask({ list = "Today" }) {
                 mode="single"
                 defaultMonth={date}
                 selected={date}
-                onSelect={setDate}
+                onSelect={(selected) => setDate(selected)}
                 disabled={{
                   before: new Date(),
                 }}

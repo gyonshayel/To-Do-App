@@ -6,6 +6,7 @@ import {
 } from "./components/ui/sidebar";
 import { AppSidebar } from "./components/Sidebar";
 import { NewTask } from "./components/NewTask";
+import { TaskList } from "./components/TasksList";
 import "./App.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <main>
             <SidebarTrigger className="hidden sm:block" />
             <NewTask />
+            <TaskList list="Today" />
           </main>
         </SidebarInset>
       </SidebarProvider>
