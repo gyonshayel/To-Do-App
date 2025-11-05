@@ -5,7 +5,7 @@ import {
   SidebarInset,
 } from "./components/ui/sidebar";
 import { AppSidebar } from "./components/Sidebar";
-import { AddTask } from "./components/AddTask";
+import { NewTask } from "./components/NewTask";
 import "./App.css";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <SidebarInset>
           <main>
             <SidebarTrigger className="hidden sm:block" />
-            <AddTask />
+            <NewTask />
           </main>
         </SidebarInset>
       </SidebarProvider>

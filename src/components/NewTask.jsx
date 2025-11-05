@@ -1,26 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useTasks } from "../context/TaskContext";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Calendar } from "./ui/calendar";
 import { Button } from "./ui/button";
 
-export function AddTask({ list = "Today" }) {
+export function NewTask({ list = "Today" }) {
+  const { addTask } = useTasks();
   const [task, setTask] = useState("");
   const [note, setNote] = useState("");
   const [date, setDate] = useState(new Date());
   const [important, setImportant] = useState(false);
-  const [tasksArray, setTasksArray] = useState([]);
-
-  useEffect(() => {
-    const arr = localStorage.getItem("tasksArray");
-    setTasksArray(arr ? JSON.parse(arr) : []);
-  }, []);
-
-  const addTask = (newTask) => {
-    const updatedTasksArray = [...tasksArray, newTask];
-    setTasksArray(updatedTasksArray);
-    localStorage.setItem("tasksArray", JSON.stringify(updatedTasksArray));
-    resetForm();
-  };
 
   const resetForm = () => {
     setTask("");
@@ -45,20 +34,39 @@ export function AddTask({ list = "Today" }) {
     };
 
     addTask(taskObj);
+    resetForm();
   };
 
   return (
     <>
       <form className="border grid grid-cols-[1fr_auto] grid-rows-2">
         {/* Task */}
-        <input
-          className=""
-          id="task"
-          type="text"
-          placeholder="Add a task"
-          value={task}
-          onChange={(e) => setTask(e.target.value)}
-        />
+        <div className="flex content-center">
+          <label className="shrink" htmlFor="task">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
+            </svg>
+          </label>
+          <input
+            className="flex-1 w-full"
+            id="task"
+            type="text"
+            placeholder="Add a task"
+            value={task}
+            onChange={(e) => setTask(e.target.value)}
+          />
+        </div>
 
         <div>
           {/* Date */}
