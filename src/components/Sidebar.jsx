@@ -17,6 +17,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarSeparator,
 } from "./ui/sidebar";
 import { Button } from "./ui/button";
 
@@ -73,6 +74,7 @@ export function AppSidebar() {
               })}
             </SidebarMenu>
           </SidebarGroupContent>
+          <SidebarSeparator />
           <form onSubmit={(event) => handleNewList(event)}>
             <input
               id="new-list"

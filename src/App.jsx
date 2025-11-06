@@ -12,6 +12,7 @@ import { All } from "./pages/all/All";
 import { Important } from "./pages/important/Important";
 import { Completed } from "./pages/completed/Completed";
 import { Custom } from "./pages/custom/Custom";
+import { SearchResults } from "./pages/search/SearchResultsPage";
 import "./App.css";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/important" element={<Important />} />
                 <Route path="/completed" element={<Completed />} />
                 <Route path="/custom/:id" element={<Custom />} />
+                <Route path="/search/:query" element={<SearchResults />} />
               </Routes>
             </main>
           </SidebarInset>

@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router";
+import { useNavigate } from "react-router";
 import { Button } from "./ui/button";
 
 export function Header() {
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (query.trim() !== "") {
+      navigate(`/search/${query}`);
+    } else {
+      navigate("/");
+    }
+  }, [query]);
 
   return (
     <header className="sticky top-0 z-50 bg-blue-100">
       <div className="sm:flex justify-between content-center p-4 border-b">
-        <a className="text-3xl font-bold" href="/">
+        <Link to="/" className="text-3xl font-bold">
           To Do
-        </a>
+        </Link>
         <form className="self-end flex content-center mt-2 sm:mt-0 border border-r-0 rounded-full">
           <label htmlFor="search" className="sr-only">
             Search
