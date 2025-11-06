@@ -9,7 +9,9 @@ export function NewTask({ list = null }) {
   const [task, setTask] = useState("");
   const [note, setNote] = useState("");
   const [date, setDate] = useState(new Date());
-  const [important, setImportant] = useState(false);
+  const [important, setImportant] = useState(() =>
+    list === "Important" ? true : false
+  );
 
   const resetForm = () => {
     setTask("");
@@ -30,7 +32,7 @@ export function NewTask({ list = null }) {
       list,
       important,
       status: "incomplete",
-      dateCreated: new Date().toISOString(),
+      dateCreated: list === "All" ? null : new Date().toISOString(),
     };
 
     addTask(taskObj);

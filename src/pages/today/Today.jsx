@@ -6,11 +6,17 @@ export function Today() {
   const { tasksArray } = useTasks();
   const today = new Date();
 
-  const filtered = tasksArray.filter(
-    (task) =>
-      new Date(task.dateCreated).toISOString().split("T")[0] ===
-      today.toISOString().split("T")[0]
-  );
+  const filtered = tasksArray
+    .filter(
+      (task) =>
+        new Date(task.dateCreated).toISOString().split("T")[0] ===
+        today.toISOString().split("T")[0]
+    )
+    .sort((a, b) => {
+      // Put important tasks before not important ones
+      if (a.important === b.important) return 0;
+      return a.important ? -1 : 1;
+    });
 
   return (
     <>

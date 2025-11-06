@@ -66,6 +66,7 @@ export function AppSidebar() {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
+              {/* Add a input and create a new list. then add that list onSubmit to the lists array with the title from the input, url and custom icon. In order to achieve this I have to store this list in a state (get from the local storage if nothing, default lists from above)  */}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>

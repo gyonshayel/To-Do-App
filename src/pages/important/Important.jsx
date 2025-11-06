@@ -9,7 +9,7 @@ export function Important() {
 
   return (
     <>
-      <NewTask />
+      <NewTask list="Important" />
       <div className="my-4 space-y-2">
         {filtered.map((task) => (
           <Task key={task.id} task={task} />
