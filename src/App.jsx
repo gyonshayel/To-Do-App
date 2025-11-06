@@ -11,6 +11,7 @@ import { Scheduled } from "./pages/scheduled/Scheduled";
 import { All } from "./pages/all/All";
 import { Important } from "./pages/important/Important";
 import { Completed } from "./pages/completed/Completed";
+import { Custom } from "./pages/custom/Custom";
 import "./App.css";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/all" element={<All />} />
                 <Route path="/important" element={<Important />} />
                 <Route path="/completed" element={<Completed />} />
+                <Route path="/custom/:id" element={<Custom />} />
               </Routes>
             </main>
           </SidebarInset>

@@ -37,10 +37,11 @@ export function AppSidebar() {
     event.preventDefault();
     if (!newList.trim()) return;
 
+    const uniqueId = crypto.randomUUID();
     const listObj = {
-      id: crypto.randomUUID(),
+      id: uniqueId,
       title: newList,
-      url: `/custom/${encodeURIComponent(newList)}`,
+      url: `/custom/${encodeURIComponent(uniqueId)}`,
     };
 
     addList(listObj);
