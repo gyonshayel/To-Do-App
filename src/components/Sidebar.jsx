@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router";
 import { useLists } from "../context/ListsContext";
 import {
@@ -29,7 +30,22 @@ const iconMap = {
 };
 
 export function AppSidebar() {
+  const [newList, setNewList] = useState("");
   const { listsArray, addList } = useLists();
+
+  const handleNewList = (event) => {
+    event.preventDefault();
+    if (!newList.trim()) return;
+
+    const listObj = {
+      id: crypto.randomUUID(),
+      title: newList,
+      url: `/custom/${encodeURIComponent(newList)}`,
+    };
+
+    addList(listObj);
+    setNewList("");
+  };
 
   return (
     <Sidebar
@@ -42,7 +58,7 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               {listsArray.map((list) => {
-                const Icon = iconMap[list.title];
+                const Icon = iconMap[list.title] || iconMap.Custom;
                 return (
                   <SidebarMenuItem key={list.id}>
                     <SidebarMenuButton asChild>
@@ -56,8 +72,15 @@ export function AppSidebar() {
               })}
             </SidebarMenu>
           </SidebarGroupContent>
-          <form>
-            <input type="text" className="border border-red-500" />
+          <form onSubmit={(event) => handleNewList(event)}>
+            <input
+              id="new-list"
+              type="text"
+              placeholder="New List"
+              value={newList}
+              onChange={(e) => setNewList(e.target.value)}
+              className="border border-red-500"
+            />
             <Button
               type="submit"
               variant="outline"
