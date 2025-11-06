@@ -118,3 +118,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .sidebar-trigger {
+    @apply z-50 sm:z-0 absolute -top-[95px] right-4 w-9 h-9 sm:w-7 sm:h-7 sm:static my-auto sm:mb-0 sm:mt-2;
+  }
+}
