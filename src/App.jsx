@@ -23,8 +23,8 @@ function App() {
         <SidebarProvider>
           <AppSidebar />
           <SidebarInset>
-            <SidebarTrigger className="hidden sm:block" />
-            <main>
+            <SidebarTrigger className="z-50 sm:z-0 absolute -top-[95px] right-4 w-9 h-9 sm:w-7 sm:h-7 sm:static" />
+            <div>
               <Routes>
                 <Route path="/" element={<Today />} />
                 <Route path="/scheduled" element={<Scheduled />} />
@@ -34,7 +34,7 @@ function App() {
                 <Route path="/custom/:id" element={<Custom />} />
                 <Route path="/search/:query" element={<SearchResults />} />
               </Routes>
-            </main>
+            </div>
           </SidebarInset>
         </SidebarProvider>
       </Router>

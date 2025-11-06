@@ -16,7 +16,7 @@ export function Header() {
   }, [query]);
 
   return (
-    <header className="sticky top-0 z-50 bg-blue-100">
+    <header className="sm:sticky top-0 z-40 bg-blue-100">
       <div className="sm:flex justify-between content-center p-4 border-b">
         <Link to="/" className="text-3xl font-bold">
           To Do

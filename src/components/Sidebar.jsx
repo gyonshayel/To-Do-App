@@ -51,11 +51,11 @@ export function AppSidebar() {
 
   return (
     <Sidebar
-      className="hidden sm:block top-[71px] h-[calc(100vh-71px)]"
+      className="top-[71px] h-[calc(100vh-71px)] border-r border-r-border"
       variant="inset"
       collapsible="icon"
     >
-      <SidebarContent>
+      <SidebarContent className="overflow-hidden">
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -63,7 +63,7 @@ export function AppSidebar() {
                 const Icon = iconMap[list.title] || iconMap.Custom;
                 return (
                   <SidebarMenuItem key={list.id}>
-                    <SidebarMenuButton asChild>
+                    <SidebarMenuButton asChild className="text-base">
                       <Link to={list.url}>
                         <Icon />
                         <span>{list.title}</span>
@@ -74,19 +74,24 @@ export function AppSidebar() {
               })}
             </SidebarMenu>
           </SidebarGroupContent>
-          <SidebarSeparator />
-          <form onSubmit={(event) => handleNewList(event)}>
+        </SidebarGroup>
+        <SidebarSeparator />
+        <SidebarGroup className="group-data-[collapsible=icon]:hidden">
+          <form
+            className="flex content-center w-max bg-background rounded-full border border-accent"
+            onSubmit={(event) => handleNewList(event)}
+          >
             <input
+              className="w-full pl-2 outline-0"
               id="new-list"
               type="text"
               placeholder="New List"
               value={newList}
               onChange={(e) => setNewList(e.target.value)}
-              className="border border-red-500"
             />
             <Button
               type="submit"
-              variant="outline"
+              variant="ghost"
               size="icon"
               className="rounded-full"
             >
