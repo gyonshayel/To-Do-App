@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+import { useLists } from "../context/ListsContext";
 import {
   Today,
   Scheduled,
@@ -15,37 +17,20 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "./ui/sidebar";
+import { Button } from "./ui/button";
 
-// Menu items.
-const lists = [
-  {
-    title: "Today",
-    url: "/",
-    icon: Today,
-  },
-  {
-    title: "Scheduled",
-    url: "/scheduled",
-    icon: Scheduled,
-  },
-  {
-    title: "All",
-    url: "/all",
-    icon: All,
-  },
-  {
-    title: "Important",
-    url: "/important",
-    icon: Important,
-  },
-  {
-    title: "Completed",
-    url: "/completed",
-    icon: Completed,
-  },
-];
+const iconMap = {
+  Today,
+  Scheduled,
+  All,
+  Important,
+  Completed,
+  Custom,
+};
 
 export function AppSidebar() {
+  const { listsArray, addList } = useLists();
+
   return (
     <Sidebar
       className="hidden sm:block top-[71px] h-[calc(100vh-71px)]"
@@ -56,19 +41,45 @@ export function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
-              {lists.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <a href={item.url}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-              {/* Add a input and create a new list. then add that list onSubmit to the lists array with the title from the input, url and custom icon. In order to achieve this I have to store this list in a state (get from the local storage if nothing, default lists from above)  */}
+              {listsArray.map((list) => {
+                const Icon = iconMap[list.title];
+                return (
+                  <SidebarMenuItem key={list.id}>
+                    <SidebarMenuButton asChild>
+                      <Link to={list.url}>
+                        <Icon />
+                        <span>{list.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
             </SidebarMenu>
           </SidebarGroupContent>
+          <form>
+            <input type="text" className="border border-red-500" />
+            <Button
+              type="submit"
+              variant="outline"
+              size="icon"
+              className="rounded-full"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 4.5v15m7.5-7.5h-15"
+                />
+              </svg>
+            </Button>
+          </form>
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
