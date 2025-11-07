@@ -45,7 +45,15 @@ export function Task({ task }) {
       <p className={task.status === "complete" ? "line-through" : ""}>
         {task.task}
       </p>
-      <Dialog>
+      <Dialog
+        onOpenChange={(open) => {
+          if (!open) {
+            setTaskDialog(task.task);
+            setNoteDialog(task.note);
+            setDateDialog(taskDate);
+          }
+        }}
+      >
         <DialogTrigger asChild>
           <Button variant="outline" size="icon" className="rounded-full">
             <svg
@@ -166,9 +174,9 @@ export function Task({ task }) {
       </Button>
 
       {task.list === "Scheduled" &&
-        dateDialog.toDateString() === today.toDateString() && <p>Due Today</p>}
-      {today < dateDialog && (
-        <p>Due {dateDialog.toLocaleDateString("en-US", options)}</p>
+        taskDate?.toDateString() === today.toDateString() && <p>Due Today</p>}
+      {today < taskDate && (
+        <p>Due {taskDate.toLocaleDateString("en-US", options)}</p>
       )}
       {task.note !== "" && (
         <svg
