@@ -71,7 +71,7 @@ export function Task({ task }) {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="size-5"
+              className="size-4 sm:size-5"
             >
               <path
                 fillRule="evenodd"
@@ -86,7 +86,7 @@ export function Task({ task }) {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="size-5"
+              className="size-4 sm:size-5"
             >
               <path
                 strokeLinecap="round"
@@ -115,7 +115,7 @@ export function Task({ task }) {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-5"
+                className="size-4 sm:size-5"
               >
                 <path
                   strokeLinecap="round"
@@ -183,7 +183,7 @@ export function Task({ task }) {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="red"
-            className="size-5"
+            className="size-4 sm:size-5"
           >
             <path
               strokeLinecap="round"
@@ -196,7 +196,7 @@ export function Task({ task }) {
 
       {/* Date and Note */}
       <div className="flex items-center gap-1.5 text-muted-foreground">
-        <div className="pl-2 text-sm flex gap-1">
+        <div className="pl-2 text-xs sm:text-sm flex gap-1">
           {task.list === "Scheduled" &&
             taskDate?.toDateString() === today.toDateString() && (
               <>
