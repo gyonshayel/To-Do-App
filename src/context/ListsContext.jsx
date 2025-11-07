@@ -39,7 +39,15 @@ export function ListsProvider({ children }) {
     localStorage.setItem("listsArray", JSON.stringify(listsArray));
   }, [listsArray]);
 
-  const addList = (list) => setListsArray((prev) => [...prev, list]);
+  const addList = (list) =>
+    setListsArray((prev) => {
+      if (
+        prev.some((l) => l.title.toLowerCase() === list.title.toLowerCase())
+      ) {
+        return prev;
+      }
+      return [...prev, list];
+    });
 
   const deleteList = (id) =>
     setListsArray((prev) => prev.filter((list) => list.id !== id));
