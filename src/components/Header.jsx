@@ -8,16 +8,17 @@ export function Header() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (query.trim() !== "") {
-      navigate(`/search/${query}`);
-    } else {
-      navigate("/");
-    }
+    const timeout = setTimeout(() => {
+      if (query.trim()) navigate(`/search/${query}`);
+      else navigate("/");
+    }, 200);
+
+    return () => clearTimeout(timeout);
   }, [query]);
 
   return (
     <header className="mb-2 sm:mb-0 sm:sticky top-0 z-40 bg-blue-600/80 backdrop-blur-xs border-b border-blue-500">
-      <div className="sm:flex justify-between content-center p-4">
+      <div className="sm:flex justify-between items-center p-4">
         <Link to="/" className="text-3xl font-bold text-blue-100">
           To Do
         </Link>
@@ -29,7 +30,7 @@ export function Header() {
             Search
           </label>
           <input
-            className="w-full sm:w-[300px] pl-2 outline-0"
+            className="w-full sm:w-[300px] pl-2 outline-0 bg-transparent text-blue-50 placeholder:text-blue-200"
             id="search"
             type="text"
             placeholder="Search"
@@ -41,6 +42,7 @@ export function Header() {
             variant="ghost"
             size="icon"
             className="rounded-full"
+            aria-label="Search"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
