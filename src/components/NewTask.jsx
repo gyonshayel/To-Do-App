@@ -3,6 +3,7 @@ import { useTasks } from "../context/TaskContext";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Calendar } from "./ui/calendar";
 import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
 
 export function NewTask({ list = null }) {
   const { addTask } = useTasks();
@@ -41,47 +42,47 @@ export function NewTask({ list = null }) {
 
   return (
     <>
-      <form className="border grid grid-cols-[1fr_auto] grid-rows-2">
-        {/* Task */}
-        <div className="flex content-center">
-          <label className="shrink" htmlFor="task">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-              />
-            </svg>
-          </label>
-          <input
-            className="flex-1 w-full"
-            id="task"
-            type="text"
-            placeholder="Add a task"
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
-          />
-        </div>
+      <form className="grid grid-cols-[auto_1fr_auto_auto] grid-rows-2 bg-accent border border-border rounded-lg">
+        <label className="row-span-2 shrink mx-auto mt-1" htmlFor="task">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-5 m-1 text-blue-500"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 4.5v15m7.5-7.5h-15"
+            />
+          </svg>
+          <span></span>
+        </label>
 
-        <div>
+        {/* Task */}
+        <input
+          className="flex-1 w-full outline-none"
+          id="task"
+          type="text"
+          placeholder="Add a task"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+        />
+
+        <div className="flex content-center">
           {/* Date */}
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="outline" size="icon" className="rounded-full">
+              <Button variant="ghost" size="icon" className="rounded-full my-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="size-6"
+                  className="size-5"
                 >
                   <path
                     strokeLinecap="round"
@@ -100,7 +101,7 @@ export function NewTask({ list = null }) {
                 disabled={{
                   before: new Date(),
                 }}
-                className="rounded-lg border shadow-sm"
+                className="p-0.5 m-0 rounded-lg border-none"
               />
             </PopoverContent>
           </Popover>
@@ -111,16 +112,16 @@ export function NewTask({ list = null }) {
               event.preventDefault();
               setImportant(!important);
             }}
-            variant="outline"
+            variant="ghost"
             size="icon"
-            className="rounded-full"
+            className="rounded-full my-1"
           >
             {important ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="size-6"
+                className="size-5"
               >
                 <path
                   fillRule="evenodd"
@@ -135,7 +136,7 @@ export function NewTask({ list = null }) {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-6"
+                className="size-5"
               >
                 <path
                   strokeLinecap="round"
@@ -147,19 +148,38 @@ export function NewTask({ list = null }) {
           </Button>
         </div>
 
+        {/* Submit */}
+        <Button
+          className="row-span-2 m-1 rounded-full bg-green-500 text-green-200 hover:bg-green-500 hover:text-green-200 border border-green-300"
+          onClick={(event) => handleAdd(event)}
+          variant="outline"
+          size="icon"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="size-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m4.5 12.75 6 6 9-13.5"
+            />
+          </svg>
+        </Button>
+
         {/* Note */}
         <input
+          className="col-span-2 border-t border-t-border outline-none"
           id="note"
           type="text"
           placeholder="Note"
           value={note}
           onChange={(e) => setNote(e.target.value)}
         />
-
-        {/* Submit */}
-        <Button onClick={(event) => handleAdd(event)} variant="ghost">
-          Add
-        </Button>
       </form>
     </>
   );

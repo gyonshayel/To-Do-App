@@ -29,7 +29,7 @@ export function Custom() {
           onClick={handleDelete}
           variant="outline"
           size="icon"
-          className="rounded-full bg-red-500 text-red-200 border border-red-300 transition-colors duration-300"
+          className="m-1 rounded-full bg-red-500 text-red-200 hover:bg-red-500 hover:text-red-200 border border-red-300"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
