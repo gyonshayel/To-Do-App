@@ -16,13 +16,13 @@ export function Header() {
   }, [query]);
 
   return (
-    <header className="mb-2 sm:mb-0 sm:sticky top-0 z-40 bg-blue-600/80 backdrop-blur-xs border-b border-blue-200">
+    <header className="mb-2 sm:mb-0 sm:sticky top-0 z-40 bg-blue-600/80 backdrop-blur-xs border-b border-blue-500">
       <div className="sm:flex justify-between content-center p-4">
         <Link to="/" className="text-3xl font-bold text-blue-100">
           To Do
         </Link>
         <form
-          className="self-end flex content-center bg-background rounded-full border border-blue-200 mt-2.5 sm:mt-0 sm:mr-2"
+          className="self-end flex content-center bg-background rounded-full border border-blue-500 mt-2.5 sm:mt-0 sm:mr-2"
           onSubmit={(event) => event.preventDefault()}
         >
           <label htmlFor="search" className="sr-only">
