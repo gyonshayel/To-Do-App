@@ -150,7 +150,7 @@ export function NewTask({ list = null }) {
 
         {/* Submit */}
         <Button
-          className="row-span-2 m-1 ml-4 rounded-full bg-green-500 text-green-200 hover:bg-green-500 hover:text-green-200 border border-green-300"
+          className="row-span-2 m-1 ml-4 rounded-full bg-blue-500 text-blue-200 hover:bg-blue-500 hover:text-blue-200 border border-blue-300"
           onClick={(event) => handleAdd(event)}
           variant="outline"
           size="icon"

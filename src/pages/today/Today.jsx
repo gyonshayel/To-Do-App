@@ -22,7 +22,7 @@ export function Today() {
     <>
       <h1 className="text-3xl font-semibold mb-4">Today</h1>
       <NewTask />
-      <div className="my-4 space-y-2">
+      <div className="my-10 space-y-2">
         {filtered.map((task) => (
           <Task key={task.id} task={task} />
         ))}
