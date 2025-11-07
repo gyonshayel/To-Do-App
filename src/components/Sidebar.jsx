@@ -78,7 +78,7 @@ export function AppSidebar() {
         <SidebarSeparator />
         <SidebarGroup className="group-data-[collapsible=icon]:hidden">
           <form
-            className="flex content-center w-max bg-background rounded-full border border-accent"
+            className="flex content-center bg-background rounded-full border border-accent"
             onSubmit={(event) => handleNewList(event)}
           >
             <input
@@ -86,6 +86,7 @@ export function AppSidebar() {
               id="new-list"
               type="text"
               placeholder="New List"
+              autoFocus={false}
               value={newList}
               onChange={(e) => setNewList(e.target.value)}
             />
@@ -101,7 +102,7 @@ export function AppSidebar() {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-6"
+                className="size-5 text-blue-500"
               >
                 <path
                   strokeLinecap="round"

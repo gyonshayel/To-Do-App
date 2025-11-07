@@ -18,7 +18,7 @@ function App() {
         <Header />
         <SidebarProvider>
           <AppSidebar />
-          <SidebarInset className="inline-block px-2">
+          <SidebarInset className="inline-block px-4 py-2">
             <div>
               <Routes>
                 <Route path="/" element={<Today />} />

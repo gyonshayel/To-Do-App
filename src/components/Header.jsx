@@ -16,29 +16,37 @@ export function Header() {
   }, [query]);
 
   return (
-    <header className="sm:sticky top-0 z-40 bg-blue-100">
-      <div className="sm:flex justify-between content-center p-4 border-b">
-        <Link to="/" className="text-3xl font-bold">
+    <header className="mb-2 sm:mb-0 sm:sticky top-0 z-40 bg-blue-600/80 backdrop-blur-xs border-b border-blue-200">
+      <div className="sm:flex justify-between content-center p-4">
+        <Link to="/" className="text-3xl font-bold text-blue-100">
           To Do
         </Link>
-        <form className="self-end flex content-center mt-2 sm:mt-0 border border-r-0 rounded-full">
+        <form
+          className="self-end flex content-center bg-background rounded-full border border-blue-200 mt-2.5 sm:mt-0"
+          onSubmit={(event) => event.preventDefault()}
+        >
           <label htmlFor="search" className="sr-only">
             Search
           </label>
           <input
-            className="flex-1 text-base px-2 lg:px-4 rounded-full focus:outline-0"
+            className="w-full pl-2 outline-0"
             id="search"
             type="text"
             placeholder="Search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <Button className="rounded-full" variant="outline" size="icon">
+          <Button
+            type="submit"
+            variant="ghost"
+            size="icon"
+            className="rounded-full"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="size-6"
+              className="size-5 text-blue-500"
             >
               <path
                 fillRule="evenodd"
