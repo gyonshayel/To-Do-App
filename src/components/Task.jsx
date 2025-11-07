@@ -65,6 +65,7 @@ export function Task({ task }) {
           variant="ghost"
           size="icon"
           className="rounded-full"
+          aria-label="Toggle 'Important"
         >
           {importantDialog ? (
             <svg
@@ -108,7 +109,12 @@ export function Task({ task }) {
           }}
         >
           <DialogTrigger asChild>
-            <Button variant="ghost" size="icon" className="rounded-full">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="rounded-full"
+              aria-label="Edit task"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -176,6 +182,7 @@ export function Task({ task }) {
           variant="ghost"
           size="icon"
           className="rounded-full"
+          aria-label="Delete task"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

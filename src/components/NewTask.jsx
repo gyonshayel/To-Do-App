@@ -3,7 +3,6 @@ import { useTasks } from "../context/TaskContext";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Calendar } from "./ui/calendar";
 import { Button } from "./ui/button";
-import { Separator } from "./ui/separator";
 
 export function NewTask({ list = null }) {
   const { addTask } = useTasks();
@@ -75,7 +74,12 @@ export function NewTask({ list = null }) {
           {/* Date */}
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full my-1">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full my-1"
+                aria-label="Select date"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -115,6 +119,7 @@ export function NewTask({ list = null }) {
             variant="ghost"
             size="icon"
             className="rounded-full my-1"
+            aria-label="Toggle 'Important'"
           >
             {important ? (
               <svg
@@ -154,6 +159,7 @@ export function NewTask({ list = null }) {
           onClick={(event) => handleAdd(event)}
           variant="outline"
           size="icon"
+          aria-label="Add task"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
