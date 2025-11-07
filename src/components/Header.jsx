@@ -22,14 +22,14 @@ export function Header() {
           To Do
         </Link>
         <form
-          className="self-end flex content-center bg-background rounded-full border border-blue-200 mt-2.5 sm:mt-0"
+          className="self-end flex content-center bg-background rounded-full border border-blue-200 mt-2.5 sm:mt-0 sm:mr-2"
           onSubmit={(event) => event.preventDefault()}
         >
           <label htmlFor="search" className="sr-only">
             Search
           </label>
           <input
-            className="w-full pl-2 outline-0"
+            className="w-full sm:w-[300px] pl-2 outline-0"
             id="search"
             type="text"
             placeholder="Search"

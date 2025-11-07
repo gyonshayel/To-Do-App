@@ -1,6 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { Header } from "./components/Header";
-import { SidebarProvider, SidebarInset } from "./components/ui/sidebar";
+import {
+  SidebarProvider,
+  SidebarInset,
+  SidebarTrigger,
+} from "./components/ui/sidebar";
 import { AppSidebar } from "./components/Sidebar";
 import { Today } from "./pages/today/Today";
 import { Scheduled } from "./pages/scheduled/Scheduled";
@@ -20,6 +24,7 @@ function App() {
           <AppSidebar />
           <SidebarInset className="inline-block px-4 py-2">
             <div>
+              <SidebarTrigger className="sidebar-trigger sm:hidden" />
               <Routes>
                 <Route path="/" element={<Today />} />
                 <Route path="/scheduled" element={<Scheduled />} />

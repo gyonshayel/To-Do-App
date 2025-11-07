@@ -9,6 +9,7 @@ import {
   Completed,
   Custom,
 } from "./ui/sidebar-icons";
+import { useSidebar } from "./ui/sidebar";
 import {
   Sidebar,
   SidebarContent,
@@ -18,6 +19,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarSeparator,
+  SidebarTrigger,
 } from "./ui/sidebar";
 import { Button } from "./ui/button";
 
@@ -33,7 +35,7 @@ const iconMap = {
 export function AppSidebar() {
   const [newList, setNewList] = useState("");
   const { listsArray, addList } = useLists();
-
+  const { isMobile } = useSidebar();
   const handleNewList = (event) => {
     event.preventDefault();
     if (!newList.trim()) return;
@@ -54,7 +56,9 @@ export function AppSidebar() {
       className="top-[71px] h-[calc(100vh-71px)] border-r border-r-border"
       variant="inset"
       collapsible="icon"
+      side={isMobile ? "right" : "left"}
     >
+      <SidebarTrigger className="mx-2.5 mt-6 sm:mt-0" />
       <SidebarContent className="overflow-hidden">
         <SidebarGroup>
           <SidebarGroupContent>

@@ -4,7 +4,6 @@ import { useLists } from "../../context/ListsContext";
 import { useTasks } from "../../context/TaskContext";
 import { Task } from "../../components/Task";
 import { NewTask } from "../../components/NewTask";
-import { SidebarTrigger } from "../../components/ui/sidebar";
 
 export function Custom() {
   const { id } = useParams();
@@ -23,7 +22,6 @@ export function Custom() {
   return (
     <>
       <div className="flex content-center gap-1 mb-4">
-        <SidebarTrigger className="sidebar-trigger" />
         <h1 className="flex-1 text-3xl font-semibold">{listName}</h1>
         <Button
           onClick={handleDelete}

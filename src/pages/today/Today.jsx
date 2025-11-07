@@ -1,7 +1,6 @@
 import { useTasks } from "../../context/TaskContext";
 import { Task } from "../../components/Task";
 import { NewTask } from "../../components/NewTask";
-import { SidebarTrigger } from "../../components/ui/sidebar";
 
 export function Today() {
   const { tasksArray } = useTasks();
@@ -21,10 +20,7 @@ export function Today() {
 
   return (
     <>
-      <div className="flex content-center gap-1 mb-4">
-        <SidebarTrigger className="sidebar-trigger" />
-        <h1 className="text-3xl font-semibold">Today</h1>
-      </div>
+      <h1 className="text-3xl font-semibold mb-4">Today</h1>
       <NewTask />
       <div className="my-4 space-y-2">
         {filtered.map((task) => (

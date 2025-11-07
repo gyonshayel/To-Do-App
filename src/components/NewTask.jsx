@@ -43,7 +43,7 @@ export function NewTask({ list = null }) {
   return (
     <>
       <form className="grid grid-cols-[auto_1fr_auto_auto] grid-rows-2 bg-accent border border-border rounded-lg">
-        <label className="row-span-2 shrink mx-auto mt-1" htmlFor="task">
+        <label className="row-span-2 shrink mt-2" htmlFor="task">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -150,7 +150,7 @@ export function NewTask({ list = null }) {
 
         {/* Submit */}
         <Button
-          className="row-span-2 m-1 rounded-full bg-green-500 text-green-200 hover:bg-green-500 hover:text-green-200 border border-green-300"
+          className="row-span-2 m-1 ml-4 rounded-full bg-green-500 text-green-200 hover:bg-green-500 hover:text-green-200 border border-green-300"
           onClick={(event) => handleAdd(event)}
           variant="outline"
           size="icon"
@@ -173,7 +173,7 @@ export function NewTask({ list = null }) {
 
         {/* Note */}
         <input
-          className="col-span-2 border-t border-t-border outline-none"
+          className="col-span-2 text-sm border-t border-t-border outline-none"
           id="note"
           type="text"
           placeholder="Note"
