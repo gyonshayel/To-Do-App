@@ -1,18 +1,42 @@
-# React + Vite
+# To-Do App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A fully featured To-Do app built with React and styled using Tailwind CSS. Allows users to manage tasks efficiently across multiple categories. Designed with a focus on usability, responsiveness and modern react best practices.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## React Compiler
+🔗 [View Live](https://to-do-app-flame-alpha-97.vercel.app/)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## ✨ Features
 
-## Expanding the ESLint configuration
+- Add, update and delete To-Dos.
+- Can create and delete custom categories(lists).
+- Filter tasks by status or type, including All, Completed, Scheduled, Important and Today.
+- Each To-Do can have a note, due date, priority marking and completion status.
+- Real time search to quickly find tasks across all categories.
+- Context API for managing To-Dos and Lists.
+- React router for navigating through different sections.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧰 Tech Stack
+
+- **Framework / Library:** React
+- **Styling:** Tailwind CSS
+- **Build Tool:** Vite
+
+---
+
+## 📸 Screenshots
+
+![Today](./public/screenshots/image-1.png)
+![Scheduled](./public/screenshots/image-2.png)
+![Important](./public/screenshots/image-3.png)
+![All](./public/screenshots/image-4.png)
+![Completed](./public/screenshots/image-5.png)
+![Custom list](./public/screenshots/image-6.png)
+
+---
