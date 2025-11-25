@@ -58,7 +58,7 @@ export function AppSidebar() {
       collapsible="icon"
       side={isMobile ? "right" : "left"}
     >
-      <SidebarTrigger className="mx-2.5 mt-6 sm:mt-0" />
+      <SidebarTrigger className="rounded-full mx-2.5 mt-6 sm:mt-0" />
       <SidebarContent className="overflow-hidden">
         <SidebarGroup>
           <SidebarGroupContent>

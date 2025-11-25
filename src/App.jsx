@@ -24,7 +24,7 @@ function App() {
           <AppSidebar />
           <SidebarInset className="inline-block px-4 py-2">
             <div>
-              <SidebarTrigger className="sidebar-trigger sm:hidden" />
+              <SidebarTrigger className="sidebar-trigger rounded-full bg-blue-400 hover:bg-blue-100 border-blue-300 text-blue-100 hover:text-blue-400 sm:hidden" />
               <Routes>
                 <Route path="/" element={<Today />} />
                 <Route path="/scheduled" element={<Scheduled />} />
