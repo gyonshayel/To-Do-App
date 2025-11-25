@@ -9,7 +9,7 @@ export function Completed() {
   return (
     <>
       <h1 className="text-3xl font-semibold mb-4">Completed</h1>
-      <div className="my-4 space-y-2">
+      <div className="my-8 space-y-2">
         {filtered.map((task) => (
           <Task key={task.id} task={task} />
         ))}

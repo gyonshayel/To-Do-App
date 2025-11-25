@@ -19,7 +19,7 @@ export function SearchResults() {
     <>
       <h2>Searching for "{query}"</h2>
       {filtered.length > 0 ? (
-        <div className="my-4 space-y-2">
+        <div className="my-8 space-y-2">
           {filtered.map((task) => (
             <Task key={task.id} task={task} />
           ))}

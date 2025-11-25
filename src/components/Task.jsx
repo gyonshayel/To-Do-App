@@ -150,7 +150,7 @@ export function Task({ task }) {
                   onChange={(e) => setTaskDialog(e.target.value)}
                 />
                 <textarea
-                  className="h-12 p-1 outline-none border border-border rounded-lg"
+                  className="h-25 p-1 outline-none border border-border rounded-lg"
                   id="note"
                   name="note"
                   type="text"

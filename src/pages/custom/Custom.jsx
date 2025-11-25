@@ -46,7 +46,7 @@ export function Custom() {
         </Button>
       </div>
       <NewTask list={listName} />
-      <div className="my-4 space-y-2">
+      <div className="my-8 space-y-2">
         {filtered.map((task) => (
           <Task key={task.id} task={task} />
         ))}
