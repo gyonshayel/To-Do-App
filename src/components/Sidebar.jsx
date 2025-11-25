@@ -35,7 +35,7 @@ const iconMap = {
 export function AppSidebar() {
   const [newList, setNewList] = useState("");
   const { listsArray, addList } = useLists();
-  const { isMobile } = useSidebar();
+  const { isMobile, openMobile, setOpenMobile } = useSidebar();
   const handleNewList = (event) => {
     event.preventDefault();
     if (!newList.trim()) return;
@@ -66,7 +66,10 @@ export function AppSidebar() {
               {listsArray.map((list) => {
                 const Icon = iconMap[list.title] || iconMap.Custom;
                 return (
-                  <SidebarMenuItem key={list.id}>
+                  <SidebarMenuItem
+                    key={list.id}
+                    onClick={() => setOpenMobile(!openMobile)}
+                  >
                     <SidebarMenuButton asChild className="text-base">
                       <Link to={list.url}>
                         <Icon />
