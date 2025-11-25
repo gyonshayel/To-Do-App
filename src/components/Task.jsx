@@ -12,6 +12,7 @@ import {
 import { Checkbox } from "./ui/checkbox";
 import { Button } from "./ui/button";
 import { Calendar } from "./ui/calendar";
+import { toast } from "sonner";
 
 export function Task({ task }) {
   const today = new Date();
@@ -170,7 +171,16 @@ export function Task({ task }) {
                 />
               </div>
               <DialogFooter className="mt-3">
-                <Button type="submit">Save changes</Button>
+                <Button
+                  type="submit"
+                  onClick={() =>
+                    toast("Changes Saved", {
+                      description: "Changes saved successfully!",
+                    })
+                  }
+                >
+                  Save changes
+                </Button>
               </DialogFooter>
             </form>
           </DialogContent>

@@ -13,6 +13,7 @@ import { Important } from "./pages/important/Important";
 import { Completed } from "./pages/completed/Completed";
 import { Custom } from "./pages/custom/Custom";
 import { SearchResults } from "./pages/search/SearchResultsPage";
+import { Toaster } from "./components/ui/sonner";
 import "./App.css";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                 <Route path="/custom/:id" element={<Custom />} />
                 <Route path="/search/:query" element={<SearchResults />} />
               </Routes>
+              <Toaster />
             </div>
           </SidebarInset>
         </SidebarProvider>
